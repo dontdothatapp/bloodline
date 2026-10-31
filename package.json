@@ -1,0 +1,23 @@
+{
+  "name": "bloodline-destruction-fighter",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Juicy superhero destruction fighter tech demo (three.js + Rapier)",
+  "scripts": {
+    "predev": "node tools/sfx-index.mjs",
+    "dev": "vite",
+    "prebuild": "node tools/sfx-index.mjs",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@dimforge/rapier3d-compat": "^0.21.0",
+    "@dimforge/rapier3d-simd-compat": "^0.21.0",
+    "@elevenlabs/elevenlabs-js": "^2.75.0",
+    "three": "^0.186.1"
+  },
+  "devDependencies": {
+    "vite": "^8.3.5"
+  }
+}

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bloodline · Sounds</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./src/soundboard/soundboard.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="top-in">
+      <h1>Bloodline <span>sound library</span></h1>
+      <div class="tools">
+        <input id="q" type="search" placeholder="Filter by name, file or use…" />
+        <span id="picks" class="picks hidden"></span>
+        <button id="copy" class="btn hidden">Copy picks</button>
+      </div>
+      <nav id="nav"></nav>
+    </div>
+  </header>
+  <main id="lib"></main>
+  <script type="module" src="./src/soundboard/soundboard.js"></script>
+</body>
+</html>

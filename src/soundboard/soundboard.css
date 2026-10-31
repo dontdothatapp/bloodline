@@ -1,0 +1,75 @@
+:root { --ink: #111; --yellow: #ffe23d; --red: #e2231a; --blue: #1f4fbf; --cream: #fff6dc; --paper: #f2d6a8; --muted: #5b5245; }
+* { box-sizing: border-box; }
+html { scroll-padding-top: 150px; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 15px/1.45 system-ui, -apple-system, 'Segoe UI', sans-serif; }
+.hidden { display: none !important; }
+code { font: 12px ui-monospace, Menlo, monospace; color: var(--muted); word-break: break-all; }
+
+.top { position: sticky; top: 0; z-index: 5; background: var(--ink); color: #fff; border-bottom: 4px solid var(--red); }
+.top-in { max-width: 1180px; margin: 0 auto; padding: 14px 16px 10px; display: grid; grid-template-columns: auto 1fr; gap: 8px 20px; align-items: center; }
+h1, h2 { font-family: Bangers, Impact, 'Arial Black', sans-serif; font-weight: normal; letter-spacing: 1.5px; margin: 0; }
+h1 { font-size: 38px; color: var(--yellow); text-shadow: 3px 3px 0 var(--red); }
+h1 span { color: #fff; text-shadow: none; font-size: 26px; margin-left: 6px; }
+.tools { display: flex; gap: 10px; align-items: center; justify-content: flex-end; flex-wrap: wrap; }
+.tools input { width: min(320px, 100%); padding: 8px 10px; border: 3px solid var(--ink); background: var(--cream); font: inherit; }
+.picks { font-size: 13px; color: var(--yellow); }
+nav { grid-column: 1 / -1; display: flex; gap: 6px; flex-wrap: wrap; }
+nav a { color: #fff; text-decoration: none; font-size: 13px; padding: 3px 10px; border: 2px solid #444; border-radius: 99px; }
+nav a:hover { border-color: var(--yellow); color: var(--yellow); }
+nav a span, h2 span { opacity: .6; }
+
+.btn { font: 18px Bangers, Impact, sans-serif; letter-spacing: 1px; padding: 5px 14px; background: var(--yellow); color: var(--ink); border: 3px solid var(--ink); box-shadow: 3px 3px 0 var(--red); cursor: pointer; }
+.btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--red); }
+
+main { max-width: 1180px; margin: 0 auto; padding: 18px 16px 80px; }
+.note { background: var(--cream); border: 3px dashed var(--ink); padding: 10px 14px; margin: 0 0 18px; }
+.cat { margin-top: 28px; }
+h2 { font-size: 32px; }
+.blurb { margin: 0 0 12px; color: var(--muted); }
+.grid { display: grid; gap: 12px; }
+
+/* a sound: what it is on the left, its takes (A = in use, B... = alternatives) side by side on the right */
+.snd { display: grid; grid-template-columns: minmax(200px, 1fr) 2fr; gap: 14px; align-items: center; background: var(--cream); border: 3px solid var(--ink); box-shadow: 5px 5px 0 var(--ink); padding: 12px 14px; }
+.snd.decided { box-shadow: 5px 5px 0 var(--blue); }
+.snd.has-alt { grid-template-columns: minmax(170px, 0.6fr) 2.4fr; }
+.meta h3 { margin: 0; font-size: 17px; }
+.meta h3 em { font-style: normal; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .5px; background: var(--ink); color: var(--yellow); padding: 1px 6px; margin-left: 6px; vertical-align: 2px; }
+.meta p { margin: 2px 0 4px; }
+.ab { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.ab-play { grid-column: 1 / -1; justify-self: start; font-size: 15px; padding: 3px 10px; }
+
+.take { display: flex; align-items: center; gap: 8px; min-width: 0; height: 52px; padding: 0 10px; background: #fff; border: 2px solid var(--ink); }
+.take.on { border-color: var(--red); box-shadow: 0 0 0 2px var(--red); }
+.take.bad { opacity: .5; }
+.take canvas { flex: 1; min-width: 40px; height: 30px; }
+.take .letter { font: 20px Bangers, Impact, sans-serif; width: 14px; text-align: center; }
+.take .dur { font: 12px ui-monospace, Menlo, monospace; color: var(--muted); min-width: 44px; text-align: right; }
+.take .keep { font-size: 12px; font-weight: 600; display: flex; align-items: center; gap: 3px; cursor: pointer; white-space: nowrap; }
+.take.empty { background: transparent; border-style: dashed; border-color: #a8987c; color: #8c7d63; font-size: 13px; gap: 10px; }
+.play { flex: none; width: 34px; height: 34px; border-radius: 50%; border: 2px solid var(--ink); background: var(--yellow); cursor: pointer; display: grid; place-items: center; padding: 0; }
+.play i { width: 0; height: 0; border-left: 11px solid var(--ink); border-top: 7px solid transparent; border-bottom: 7px solid transparent; margin-left: 3px; }
+.take.on .play { background: var(--red); }
+.take.on .play i { width: 10px; height: 10px; border: 0; background: #fff; margin: 0; }
+
+/* punches: many short variations, so smaller cards in a grid with the takes stacked */
+.compact .grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+.compact .snd { grid-template-columns: 1fr; gap: 8px; padding: 10px; box-shadow: 4px 4px 0 var(--ink); }
+.compact .meta { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.compact .ab { grid-template-columns: 1fr; gap: 6px; }
+.compact .take { height: 44px; }
+
+@media (max-width: 760px) {
+  .top { position: static; }
+  html { scroll-padding-top: 0; }
+  .top-in { grid-template-columns: 1fr; }
+  .tools { justify-content: flex-start; }
+  .snd, .snd.has-alt { grid-template-columns: 1fr; }
+  .ab { grid-template-columns: 1fr; }
+  h1 { font-size: 30px; }
+}
+.again { flex: none; width: 26px; height: 26px; border: 2px solid var(--ink); background: var(--cream); font-size: 15px; line-height: 1; cursor: pointer; padding: 0; }
+.again:hover { background: var(--yellow); }
+.alt-info { grid-column: 1 / -1; margin: 0; font-size: 12px; color: var(--muted); }
+.alt-info b { font: 15px Bangers, Impact, sans-serif; color: var(--ink); margin-right: 2px; }
+.alt-info q { display: block; font-style: italic; margin-top: 1px; }
+.note.cost { border-style: solid; background: #fff; }
